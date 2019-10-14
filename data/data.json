@@ -1,52 +1,63 @@
 {
-  "slideshow": [
-    {
+  "slideshow": [{
       "name": "Slide 01",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2001"
     },
     {
       "name": "Slide 02",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2002"
     },
     {
       "name": "Slide 03",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2003"
     },
     {
       "name": "Slide 04",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2004"
     },
     {
       "name": "Slide 05",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2005"
     },
     {
       "name": "Slide 06",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2006"
     },
     {
       "name": "Slide 07",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2007"
     },
     {
       "name": "Slide 08",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2008"
     },
     {
       "name": "Slide 09",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2009"
     },
     {
       "name": "Slide 10",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2010"
     },
     {
       "name": "Slide 11",
+      "type": "img",
       "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2011"
     },
     {
       "name": "Slide 12",
-      "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2012"
+      "type": "img",
+      "src": "../responsive-slideshow/images/omg.svg"
     }
   ]
 }

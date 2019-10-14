@@ -6,15 +6,51 @@ html {
     font-size: 16px;
 }
 
+button {
+    margin: 0.75rem;
+    outline: none;
+    border: none;
+    background: #e4e4e4e4;
+    padding: 0.75rem;
+    transition: all linear 0.5s;
+}
+
+button:hover {
+    background-color: blue;
+}
+
 header.container,
 .container.slideshow,
+.container.arrows,
 .container.pagination,
 .container.buttons {
     text-align: center;
 }
 
-.container.slideshow img {
-    display: block;
+.container.slideshow {
+    overflow: hidden;
+    margin: 0 auto 0 auto;
+    position: relative;
 }
 
-.container.slideshow caption {}
+.container.slideshow #responsive_slideshow {
+    position: relative;
+    display: block;
+    margin-left: 0;
+    transition: all linear 1s;
+}
+
+.container.slideshow #responsive_slideshow img,
+.container.slideshow #responsive_slideshow video {
+    height: 18.75rem;
+    width: 25rem;
+}
+
+.container.arrows {
+    position: absolute;
+    top: 8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
