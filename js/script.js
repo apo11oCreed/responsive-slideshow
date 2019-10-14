@@ -4,8 +4,8 @@ let respPageButtons = document.querySelector(".container.pagination");
 let previousButton = document.querySelectorAll("button.previous");
 let nextButton = document.querySelectorAll("button.next");
 respSlideshow.style.marginLeft = "0px";
-const data = "../responsive-slideshow/data/data.json";
-//const data = "../data/data.json";
+//const data = "../responsive-slideshow/data/data.json";
+const data = "../data/data.json";
 
 let slideInstancesList;
 let sliderContainerWidth;
