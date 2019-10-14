@@ -57,7 +57,7 @@
     {
       "name": "Slide 12",
       "type": "img",
-      "src": "../images/omg.svg"
+      "src": "/responsive-slideshow/images/omg.svg"
     }
   ]
 }
