@@ -10,7 +10,7 @@ button {
     margin: 0.75rem;
     outline: none;
     border: none;
-    background: #e4e4e4e4;
+    background: #e4e4e4;
     padding: 0.75rem;
     transition: all linear 0.5s;
 }
@@ -53,4 +53,8 @@ header.container,
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.container.pagination button.page.active {
+    background: blue;
 }
