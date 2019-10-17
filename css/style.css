@@ -2,6 +2,10 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    margin: 0;
+}
+
 html {
     font-size: 16px;
 }
@@ -42,17 +46,26 @@ header.container,
 
 .container.slideshow #responsive_slideshow img,
 .container.slideshow #responsive_slideshow video {
-    height: 18.75rem;
-    width: 25rem;
+    height: 72vw;
+    width: 100vw;
+    /*25x16=400
+    41.6875x16=667 100
+    
+    18.75x16=300
+    30.015x16=480.24 72
+    
+    
+    */
 }
 
 .container.arrows {
     position: absolute;
-    top: 8rem;
+    top: 50%;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    transform: translateY(-55%);
 }
 
 .container.pagination button.page.active {
