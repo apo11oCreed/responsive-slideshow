@@ -58,6 +58,10 @@ header.container,
     */
 }
 
+.imgWidth {
+    width: 100vw;
+}
+
 .container.arrows {
     position: absolute;
     top: 50%;
