@@ -49,7 +49,7 @@ function renderSlides(slides, container, callback) {
 }
 
 function calcSlideShowWidth(slideArray, callback) {
-  respSlideshow.style.width = slideArray.length * 100 + "vw";
+  slideShowSlideWidth = .container.slideshow# responsive_slideshow
   callback();
 }
 
@@ -60,37 +60,45 @@ function controlsBuilder() {
   img = respSlideshow.querySelectorAll("img");
 
   pageButtons.forEach(function(currentValue, index, arr) {
-    currentValue.addEventListener('click', function() {
+        currentValue.addEventListener('click', function() {
 
-      if (currentValue.classList.contains("page")) {
-        respSlideshow.style.marginLeft = "-" + (index - 2) * 100 + "vw";
-        marginLeftPosition = respSlideshow.style.marginLeft;
-      }
-      else if (currentValue.classList.contains("previous")) {
-        respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
-        if (respSlideshowCurrentMargin && respSlideshowCurrentMargin != "0vw") {
-          respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) + 100).toString() + "vw";
-          marginLeftPosition = respSlideshow.style.marginLeft;
+            if (currentValue.classList.contains("page")) {
+              respSlideshow.style.marginLeft = "-" + (index - 2) * 100 + "vw";
+              marginLeftPosition = respSlideshow.style.marginLeft;
+            }
+            else if (currentValue.classList.contains("previous")) {
+              respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
+              if (respSlideshowCurrentMargin && respSlideshowCurrentMargin != "0vw") {
+                respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) + 100).toString() + "vw";
+                marginLeftPosition = respSlideshow.style.marginLeft;
 
-        }
-      }
-      else {
-        if (currentValue.classList.contains("next")) {
-          respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
-          if (respSlideshowCurrentMargin != "-" + (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) + 100).toString() + "vw") {
-            respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) - 100).toString() + "vw";
-            marginLeftPosition = respSlideshow.style.marginLeft;
+              }
+              else {
+                respSlideshow.style.marginLeft = "-" + ((img.length - 1) * 100) + "vw";
+                marginLeftPosition = respSlideshow.style.marginLeft;
+              }
+            }
+            else {
+              if (currentValue.classList.contains("next")) {
+                respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
+                if (respSlideshowCurrentMargin != "-" + ((img.length - 1) * 100).toString() + "vw") {
+                  console.log((img.length - 1) * 100));
+                respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) - 100).toString() + "vw";
+                marginLeftPosition = respSlideshow.style.marginLeft;
 
-          }
-        }
-      }
-      if (marginLeftPosition) {
-        marginLeftPosition = marginLeftPosition.replace(/[-vw]/g, '');
-        highlightIndex = marginLeftPosition / 100 + 2;
-        highlighterIndex(highlightIndex);
-      }
-    });
-  });
+              }
+              else {
+                respSlideshow.style.marginLeft = "0vw";
+                marginLeftPosition = respSlideshow.style.marginLeft;
+              }
+            }
+            }
+            if (marginLeftPosition) {
+              marginLeftPosition = marginLeftPosition.replace(/[-vw]/g, '');
+              highlightIndex = marginLeftPosition / 100 + 2;
+              highlighterIndex(highlightIndex);
+            }
+            });});
 }
 
 function highlighterIndex(element) {
