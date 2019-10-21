@@ -1,0 +1,7 @@
+#user: slideshow_admin, host: localhost, password: $slidedhow_admin1
+
+#http://webvaultwiki.com.au/(X(1)S(mkom44yubjqz40zirhqw3zmh))/Default.aspx?Page=Create-Mysql-Database-User-Phpmyadmin&NS=&AspxAutoDetectCookieSupport=1
+
+#https://www.hostgator.com/help/article/how-to-add-tables-to-a-database-in-phpmyadmin
+
+#https://stackoverflow.com/questions/25198241/passing-database-data-from-php-to-javascript

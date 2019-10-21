@@ -4,7 +4,7 @@ let respPageButtons = document.querySelector(".container.pagination");
 let previousButton = document.querySelectorAll("button.previous");
 let nextButton = document.querySelectorAll("button.next");
 respSlideshow.style.marginLeft = "0vw";
-const data = "/responsive-slideshow/data/data.json";
+const data = "/responsive-slideshow/data/data-php.json";
 //const data = "/responsive-slideshow/data/data.json";
 
 let slideInstancesList;
@@ -21,7 +21,7 @@ request.responseType = "json";
 request.send();
 
 request.onload = function() {
-  slideInstancesList = request.response.slideshow;
+  slideInstancesList = request.response;
   var slideWidthRule = new RegExp('[0-9]{1,}vw');
 
   renderSlides(slideInstancesList, respSlideshow, function() {
@@ -72,8 +72,8 @@ function controlsBuilder() {
       }
       else if (currentValue.classList.contains("previous")) {
         respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
-        if (respSlideshowCurrentMargin && respSlideshowCurrentMargin != "0vw") {
-          respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) + imgWidthRuleUnitValue).toString() + "vw";
+        if (respSlideshowCurrentMargin != "0vw") {
+          respSlideshow.style.marginLeft = (Number(respSlideshowCurrentMargin.replace(/[vw]/g, '')) + Number(imgWidthRuleUnitValue)).toString() + "vw";
           marginLeftPosition = respSlideshow.style.marginLeft;
 
         }
