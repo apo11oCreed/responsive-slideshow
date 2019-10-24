@@ -1,4 +1,4 @@
-const data = "../data/data-php.json";
+const data = "../responsive-slideshow/data/data-php.json";
 //const data = "/responsive-slideshow/data/data.json";
 
 let respSlideshowContainer = document.querySelector(".container.slideshow"),

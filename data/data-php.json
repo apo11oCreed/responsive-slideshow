@@ -59,6 +59,14 @@
     "type": "img",
     "src": "https://via.placeholder.com/300x200/000000/ffffff?text=Slide%2012"
   },
-  { "name": "svg", "type": "svg", "src": "../images/omg.svg" },
-  { "name": "Slide 13", "type": "img", "src": "../images/omg.svg" }
+  {
+    "name": "svg",
+    "type": "svg",
+    "src": "/responsive-slideshow/images/omg.svg"
+  },
+  {
+    "name": "Slide 13",
+    "type": "img",
+    "src": "/responsive-slideshow/images/omg.svg"
+  }
 ]
