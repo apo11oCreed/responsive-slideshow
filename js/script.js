@@ -1,4 +1,4 @@
-const data = "/responsive-slideshow/data/data-php.json";
+const data = "../data/data-php.json";
 //const data = "/responsive-slideshow/data/data.json";
 
 let respSlideshowContainer = document.querySelector(".container.slideshow"),
@@ -13,6 +13,9 @@ let respSlideshowContainer = document.querySelector(".container.slideshow"),
   highlightIndex,
   imgWidthRuleUnitValue,
   imgWidthRuleUnit,
+  startX,
+  endX,
+  respSlideshowCurrentMargin,
   request = new XMLHttpRequest();
 
 respSlideshow.style.marginLeft = "0vw";
@@ -66,54 +69,35 @@ function calcSlideShowWidth(slideArray, callback) {
 function controlsBuilder() {
   let respSlideshow = document.getElementById("responsive_slideshow");
   let pageButtons = document.querySelectorAll("button");
-  let respSlideshowCurrentMargin;
   img = respSlideshow.querySelectorAll("img");
 
+  img.forEach(function(currentValue, index, arr) {
+    currentValue.addEventListener("touchstart", handleStart, false);
+    currentValue.addEventListener("touchend", handleEnd, false);
+  });
+
   pageButtons.forEach(function(currentValue, index, arr) {
-    currentValue.addEventListener("click", function() {
-      if (currentValue.classList.contains("page")) {
-        respSlideshow.style.marginLeft =
-          "-" + (index - 2) * imgWidthRuleUnitValue + "vw";
-        marginLeftPosition = respSlideshow.style.marginLeft;
-      } else if (currentValue.classList.contains("previous")) {
-        respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
-        if (respSlideshowCurrentMargin != "0vw") {
+    currentValue.addEventListener(
+      "click",
+      function() {
+        if (currentValue.classList.contains("page")) {
+          // PAGINATE NAVIGATE
           respSlideshow.style.marginLeft =
-            (
-              Number(respSlideshowCurrentMargin.replace(/[vw]/g, "")) +
-              Number(imgWidthRuleUnitValue)
-            ).toString() + "vw";
+            "-" + (index - 2) * imgWidthRuleUnitValue + "vw";
           marginLeftPosition = respSlideshow.style.marginLeft;
-        } else {
-          respSlideshow.style.marginLeft =
-            "-" + (img.length - 1) * imgWidthRuleUnitValue + "vw";
-          marginLeftPosition = respSlideshow.style.marginLeft;
+        } else if (currentValue.classList.contains("previous")) {
+          previousNavigate();
+        } else if (currentValue.classList.contains("next")) {
+          nextNavigate();
         }
-      } else {
-        if (currentValue.classList.contains("next")) {
-          respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
-          if (
-            respSlideshowCurrentMargin !=
-            "-" + ((img.length - 1) * imgWidthRuleUnitValue).toString() + "vw"
-          ) {
-            respSlideshow.style.marginLeft =
-              (
-                Number(respSlideshowCurrentMargin.replace(/[vw]/g, "")) -
-                imgWidthRuleUnitValue
-              ).toString() + "vw";
-            marginLeftPosition = respSlideshow.style.marginLeft;
-          } else {
-            respSlideshow.style.marginLeft = "0vw";
-            marginLeftPosition = respSlideshow.style.marginLeft;
-          }
+        if (marginLeftPosition) {
+          marginLeftPosition = marginLeftPosition.replace(/[-vw]/g, "");
+          highlightIndex = marginLeftPosition / imgWidthRuleUnitValue + 2;
+          highlighterIndex(highlightIndex);
         }
-      }
-      if (marginLeftPosition) {
-        marginLeftPosition = marginLeftPosition.replace(/[-vw]/g, "");
-        highlightIndex = marginLeftPosition / imgWidthRuleUnitValue + 2;
-        highlighterIndex(highlightIndex);
-      }
-    });
+      },
+      false
+    );
   });
 }
 
@@ -164,6 +148,59 @@ function GetStyle(CLASSname) {
 }
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Touch_events
-function handleStart() {}
+function handleStart(event) {
+  event.preventDefault();
+  startX = event.changedTouches[0].pageX;
+  return startX;
+}
 
-function handleMove() {}
+function handleEnd(event) {
+  event.preventDefault();
+  endX = event.changedTouches[0].pageX;
+  if (startX > endX) {
+    nextNavigate();
+  } else {
+    previousNavigate();
+  }
+  if (marginLeftPosition) {
+    marginLeftPosition = marginLeftPosition.replace(/[-vw]/g, "");
+    highlightIndex = marginLeftPosition / imgWidthRuleUnitValue + 2;
+    highlighterIndex(highlightIndex);
+  }
+}
+
+function nextNavigate() {
+  // NEXT NAVIGATE
+  respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
+  if (
+    respSlideshowCurrentMargin !=
+    "-" + ((img.length - 1) * imgWidthRuleUnitValue).toString() + "vw"
+  ) {
+    respSlideshow.style.marginLeft =
+      (
+        Number(respSlideshowCurrentMargin.replace(/[vw]/g, "")) -
+        imgWidthRuleUnitValue
+      ).toString() + "vw";
+    marginLeftPosition = respSlideshow.style.marginLeft;
+  } else {
+    respSlideshow.style.marginLeft = "0vw";
+    marginLeftPosition = respSlideshow.style.marginLeft;
+  }
+}
+
+function previousNavigate() {
+  // PREVIOUS NAVIGATE
+  respSlideshowCurrentMargin = respSlideshow.style.marginLeft;
+  if (respSlideshowCurrentMargin != "0vw") {
+    respSlideshow.style.marginLeft =
+      (
+        Number(respSlideshowCurrentMargin.replace(/[vw]/g, "")) +
+        Number(imgWidthRuleUnitValue)
+      ).toString() + "vw";
+    marginLeftPosition = respSlideshow.style.marginLeft;
+  } else {
+    respSlideshow.style.marginLeft =
+      "-" + (img.length - 1) * imgWidthRuleUnitValue + "vw";
+    marginLeftPosition = respSlideshow.style.marginLeft;
+  }
+}

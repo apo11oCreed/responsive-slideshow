@@ -1,26 +1,26 @@
 * {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 button {
-    margin: 0.75rem;
-    outline: none;
-    border: none;
-    background: #e4e4e4;
-    padding: 0.75rem;
-    transition: all linear 0.5s;
+  margin: 0.75rem;
+  outline: none;
+  border: none;
+  background: #e4e4e4;
+  padding: 0.75rem;
+  transition: all linear 0.5s;
 }
 
 button:hover {
-    background-color: blue;
+  background-color: blue;
 }
 
 header.container,
@@ -28,27 +28,28 @@ header.container,
 .container.arrows,
 .container.pagination,
 .container.buttons {
-    text-align: center;
+  text-align: center;
 }
 
 .container.slideshow {
-    overflow: hidden;
-    margin: 0 auto 0 auto;
-    position: relative;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+  position: relative;
 }
 
 .container.slideshow #responsive_slideshow {
-    position: relative;
-    display: block;
-    margin-left: 0;
-    transition: all linear 1s;
+  position: relative;
+  display: block;
+  margin-left: 0;
+  transition: all linear 1s;
+  overflow-x: scroll;
 }
 
 .container.slideshow #responsive_slideshow img,
 .container.slideshow #responsive_slideshow video {
-    height: 72vw;
-    width: 100vw;
-    /*25x16=400
+  height: 72vw;
+  width: 100vw;
+  /*25x16=400
     41.6875x16=667 100
     
     18.75x16=300
@@ -59,19 +60,19 @@ header.container,
 }
 
 .imgWidth {
-    width: 100vw;
+  width: 100vw;
 }
 
 .container.arrows {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    transform: translateY(-55%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: translateY(-55%);
 }
 
 .container.pagination button.page.active {
-    background: blue;
+  background: blue;
 }
